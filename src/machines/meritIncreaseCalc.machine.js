@@ -1,4 +1,9 @@
 import {assign, createMachine} from "xstate";
+import Dinero from 'dinero.js';
+
+function toPrice(amount, factor = Math.pow(10, 2)) {
+  return Dinero({ amount: Math.round(amount * factor) });
+}
 
 // const not = fn => (...args) => !fn.apply(null, args);
 // const isZero = (context, event) => event.key === 0;
@@ -52,6 +57,8 @@ const meritIncreaseCalcMachine = createMachine(
       id: "meritIncreaseCalc",
       context: {
         data: [],
+        finalResult: 0,
+        percentageChange: 0,
         meritPercentage: 0,
         annualIncome: 0,
         duration: 0,
@@ -114,8 +121,8 @@ const meritIncreaseCalcMachine = createMachine(
                 case 1:
                   results.push({
                     id: i,
-                    increase: '$' + parseFloat((ctx.annualIncome * ctx.meritPercentage).toFixed(2)),
-                    total: '$' + parseFloat((ctx.annualIncome * ctx.meritPercentage + ctx.annualIncome).toFixed(2))
+                    increase: toPrice(ctx.annualIncome * ctx.meritPercentage).toFormat(),
+                    total: toPrice(ctx.annualIncome * ctx.meritPercentage + ctx.annualIncome).toFormat()
                   });
 
                   // prevEarned =  ctx.annualIncome * ctx.meritPercentage;
@@ -124,8 +131,8 @@ const meritIncreaseCalcMachine = createMachine(
                 default:
                   results.push({
                     id: i,
-                    increase: '$' + parseFloat((prevTotal * ctx.meritPercentage).toFixed(2)),
-                    total: '$' + parseFloat((prevTotal * ctx.meritPercentage + prevTotal).toFixed(2)),
+                    increase: toPrice(prevTotal * ctx.meritPercentage).toFormat(),
+                    total: toPrice(prevTotal * ctx.meritPercentage + prevTotal).toFormat()
                   });
 
                   // prevEarned =  results[i - 1].total * ctx.meritPercentage;
