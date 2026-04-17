@@ -13,10 +13,12 @@
     "@xstate/vue": "0.1.0",
     "buefy": "^0.9.11",
     "bulma": "^0.9.3",
+    "chart.js": "3.9.1",
     "core-js": "^3.6.5",
     "dinero.js": "^1.9.1",
     "rxjs": "^7.4.0",
     "vue": "^2.6.11",
+    "vue-chartjs": "4.1.2",
     "xstate": "^4.26.0"
   },
   "devDependencies": {

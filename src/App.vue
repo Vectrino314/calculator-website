@@ -5,22 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
-    <title>Hello Bulma!</title>
+    <title>Stock Investment Calculator</title>
 <!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">-->
   </head>
   <body>
   <section class="section">
-    <!-- <MeritIncrease></MeritIncrease> -->
-    <ExpectedFinance></ExpectedFinance>
-<!--    <b-table :data="data" :columns="columns"></b-table>-->
-<!--    <div class="container">-->
-<!--      <h1 class="title">-->
-<!--        Hello World-->
-<!--      </h1>-->
-<!--      <p class="subtitle">-->
-<!--        My first website with <strong>Bulma</strong>!-->
-<!--      </p>-->
-<!--    </div>-->
+    <StockCalculator></StockCalculator>
   </section>
   </body>
   </html>
@@ -28,19 +18,12 @@
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
-// import CalculatorTable from "@/components/CalculatorTable";
-
-// import MeritIncrease from "@/components/MeritIncrease/MeritIncrease.vue";
-import ExpectedFinance from "@/components/ExpectedFinances/ExpectedFinance";
+import StockCalculator from "@/components/StockCalculator/StockCalculator.vue";
 
 export default {
   name: 'App',
   components: {
-    // MeritIncrease,
-    ExpectedFinance
-    // CalculatorTable,
-    // HelloWorld
+    StockCalculator
   },
   data() {
     return {
